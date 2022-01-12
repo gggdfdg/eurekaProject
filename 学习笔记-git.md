@@ -82,3 +82,8 @@
 ```seq
   git push origin master
 ```
+
+##### 备注
+```seq
+  切记提交东西一定要push，不管是intellj idea的插件还是git本身，不push就不生效
+```
