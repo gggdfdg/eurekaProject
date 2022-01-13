@@ -10,6 +10,7 @@
         <module name="server1" />
         <module name="server2" />
         <module name="server3" />
+        <module name="web" />
       </profile>
     </annotationProcessing>
   </component>
