@@ -7,13 +7,12 @@
     <groupId>com.ming.eureka</groupId>
     <artifactId>server3</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <parent>
+        <groupId>com.ming.eureka</groupId>
+        <artifactId>server</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <dependencies>
-        <dependency>
-            <groupId>com.ming.eureka</groupId>
-            <artifactId>server</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>

@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/server2/pom.xml" />
         <option value="$PROJECT_DIR$/server3/pom.xml" />
         <option value="$PROJECT_DIR$/web/pom.xml" />
+        <option value="$PROJECT_DIR$/util/pom.xml" />
       </list>
     </option>
   </component>
