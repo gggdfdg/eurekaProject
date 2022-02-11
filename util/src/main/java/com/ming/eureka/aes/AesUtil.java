@@ -25,10 +25,17 @@ public class AesUtil {
         return Cryptos.aesDecrypt(Encodes.decodeBase64(content), key.getBytes(), PRIVATE_KEY);
     }
 
+    /**
+     * 加密和解密测试
+     * @param args
+     */
     public static void main(String args[]) {
-        String fsafsa = encryption("fsafsa");
-        System.out.println(fsafsa);
-        System.out.println(decryption(fsafsa));
+        String text = "加密测试";
+        //加密字符
+        String encryText = encryption(text);
+        System.out.println(encryText);
+        //解密字符
+        System.out.println(decryption(encryText));
     }
 
 }

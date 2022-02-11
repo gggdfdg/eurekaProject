@@ -28,6 +28,7 @@ import java.util.Map.Entry;
 
 
 /**
+ * excel工具
  * @author lxm 2016年2月24日
  */
 public class ExcelUtil {
@@ -522,8 +523,6 @@ public class ExcelUtil {
         wb.close();
         return descPath;
     }
-
-
 
     private static boolean existsField(Class clz,String fieldName){
         try{

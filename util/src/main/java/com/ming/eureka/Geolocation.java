@@ -1,5 +1,8 @@
 package com.ming.eureka;
 
+/**
+ * 地理位置
+ */
 public class Geolocation {
 	
 	/**

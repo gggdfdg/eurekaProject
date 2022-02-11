@@ -19,6 +19,7 @@ import java.util.Map;
 
 /**
  * 二维码生成(二维码里面可以内嵌图片)和解析
+ *
  * @author lichunxi
  */
 public class BarcodeFactory {
@@ -47,9 +48,7 @@ public class BarcodeFactory {
             try {
                 ImageIO.write(genBarcode(content, width, height, srcImage),
                         "png", destImage);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (WriterException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -58,15 +57,19 @@ public class BarcodeFactory {
     private static BufferedImage genBarcode(String content, int width,
                                             int height, File srcImage) throws WriterException,
             IOException {
-        // 读取源图像
-        BufferedImage scaleImage = scale(srcImage, IMAGE_WIDTH,
-                IMAGE_HEIGHT, true);
         int[][] srcPixels = new int[IMAGE_WIDTH][IMAGE_HEIGHT];
-        for (int i = 0; i < scaleImage.getWidth(); i++) {
-            for (int j = 0; j < scaleImage.getHeight(); j++) {
-                srcPixels[i][j] = scaleImage.getRGB(i, j);
+        boolean needImage = srcImage != null;
+        if (srcImage != null) {
+            // 读取源图像
+            BufferedImage scaleImage = scale(srcImage, IMAGE_WIDTH,
+                    IMAGE_HEIGHT, true);
+            for (int i = 0; i < scaleImage.getWidth(); i++) {
+                for (int j = 0; j < scaleImage.getHeight(); j++) {
+                    srcPixels[i][j] = scaleImage.getRGB(i, j);
+                }
             }
         }
+
 
         Map<EncodeHintType, Object> hint = new HashMap<EncodeHintType, Object>();
         hint.put(EncodeHintType.CHARACTER_SET, "utf-8");
@@ -82,37 +85,44 @@ public class BarcodeFactory {
 
         for (int y = 0; y < matrix.getHeight(); y++) {
             for (int x = 0; x < matrix.getWidth(); x++) {
-                // 读取图片
-                if (x > halfW - IMAGE_HALF_WIDTH
-                        && x < halfW + IMAGE_HALF_WIDTH
-                        && y > halfH - IMAGE_HALF_WIDTH
-                        && y < halfH + IMAGE_HALF_WIDTH) {
-                    pixels[y * width + x] = srcPixels[x - halfW
-                            + IMAGE_HALF_WIDTH][y - halfH + IMAGE_HALF_WIDTH];
-                }
-                // 在图片四周形成边框
-                else if ((x > halfW - IMAGE_HALF_WIDTH - FRAME_WIDTH
-                        && x < halfW - IMAGE_HALF_WIDTH + FRAME_WIDTH
-                        && y > halfH - IMAGE_HALF_WIDTH - FRAME_WIDTH && y < halfH
-                        + IMAGE_HALF_WIDTH + FRAME_WIDTH)
-                        || (x > halfW + IMAGE_HALF_WIDTH - FRAME_WIDTH
-                        && x < halfW + IMAGE_HALF_WIDTH + FRAME_WIDTH
-                        && y > halfH - IMAGE_HALF_WIDTH - FRAME_WIDTH && y < halfH
-                        + IMAGE_HALF_WIDTH + FRAME_WIDTH)
-                        || (x > halfW - IMAGE_HALF_WIDTH - FRAME_WIDTH
-                        && x < halfW + IMAGE_HALF_WIDTH + FRAME_WIDTH
-                        && y > halfH - IMAGE_HALF_WIDTH - FRAME_WIDTH && y < halfH
-                        - IMAGE_HALF_WIDTH + FRAME_WIDTH)
-                        || (x > halfW - IMAGE_HALF_WIDTH - FRAME_WIDTH
-                        && x < halfW + IMAGE_HALF_WIDTH + FRAME_WIDTH
-                        && y > halfH + IMAGE_HALF_WIDTH - FRAME_WIDTH && y < halfH
-                        + IMAGE_HALF_WIDTH + FRAME_WIDTH)) {
-                    pixels[y * width + x] = 0xfffffff;
+                if (needImage) {
+                    // 读取图片
+                    if (x > halfW - IMAGE_HALF_WIDTH
+                            && x < halfW + IMAGE_HALF_WIDTH
+                            && y > halfH - IMAGE_HALF_WIDTH
+                            && y < halfH + IMAGE_HALF_WIDTH) {
+                        pixels[y * width + x] = srcPixels[x - halfW
+                                + IMAGE_HALF_WIDTH][y - halfH + IMAGE_HALF_WIDTH];
+                    }
+                    // 在图片四周形成边框
+                    else if ((x > halfW - IMAGE_HALF_WIDTH - FRAME_WIDTH
+                            && x < halfW - IMAGE_HALF_WIDTH + FRAME_WIDTH
+                            && y > halfH - IMAGE_HALF_WIDTH - FRAME_WIDTH && y < halfH
+                            + IMAGE_HALF_WIDTH + FRAME_WIDTH)
+                            || (x > halfW + IMAGE_HALF_WIDTH - FRAME_WIDTH
+                            && x < halfW + IMAGE_HALF_WIDTH + FRAME_WIDTH
+                            && y > halfH - IMAGE_HALF_WIDTH - FRAME_WIDTH && y < halfH
+                            + IMAGE_HALF_WIDTH + FRAME_WIDTH)
+                            || (x > halfW - IMAGE_HALF_WIDTH - FRAME_WIDTH
+                            && x < halfW + IMAGE_HALF_WIDTH + FRAME_WIDTH
+                            && y > halfH - IMAGE_HALF_WIDTH - FRAME_WIDTH && y < halfH
+                            - IMAGE_HALF_WIDTH + FRAME_WIDTH)
+                            || (x > halfW - IMAGE_HALF_WIDTH - FRAME_WIDTH
+                            && x < halfW + IMAGE_HALF_WIDTH + FRAME_WIDTH
+                            && y > halfH + IMAGE_HALF_WIDTH - FRAME_WIDTH && y < halfH
+                            + IMAGE_HALF_WIDTH + FRAME_WIDTH)) {
+                        pixels[y * width + x] = 0xfffffff;
+                    } else {
+                        // 此处可以修改二维码的颜色，可以分别制定二维码和背景的颜色；
+                        pixels[y * width + x] = matrix.get(x, y) ? 0xff000000
+                                : 0xfffffff;
+                    }
                 } else {
                     // 此处可以修改二维码的颜色，可以分别制定二维码和背景的颜色；
                     pixels[y * width + x] = matrix.get(x, y) ? 0xff000000
                             : 0xfffffff;
                 }
+
             }
         }
 
@@ -192,7 +202,7 @@ public class BarcodeFactory {
             BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
 
             Map<DecodeHintType, Object> hints = new HashMap<DecodeHintType, Object>();
-            hints.put(DecodeHintType.CHARACTER_SET, "GBK");
+            hints.put(DecodeHintType.CHARACTER_SET, "utf-8");
 
             result = new MultiFormatReader().decode(bitmap, hints);
             return result.getText();
@@ -203,9 +213,21 @@ public class BarcodeFactory {
         return null;
     }
 
-    public static void main(String[] args) throws Exception{
-//      BarcodeFactory.encode("http://www.afeifabianshi.cn/",
-//						300, 300, new File("G:\\2013.png"), new File("G:\\2013-01.png"));
+    public static void main(String[] args) {
+        //二维码隐藏的信息
+        String content = "很棒";
+        //二维码图片宽度
+        int width = 300;
+        //二维码图片高度
+        int height = 300;
+        //嵌入二维码中间的图片路径(如果中间不需要嵌入个人图片，直接传null)
+        File embeddedPngFile = new File("G:\\2013.png");
+        //生成的二维码图片路径
+        String destImg = "G:\\2013-01.png";
+        //生成二维码图片
+        BarcodeFactory.encode(content,
+                width, height, embeddedPngFile, new File(destImg));
+        //解码二维码信息
         System.out.println(BarcodeFactory.decodePR("G:\\2013-01.png"));
     }
 

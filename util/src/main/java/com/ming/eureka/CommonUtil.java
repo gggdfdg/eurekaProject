@@ -11,6 +11,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.slf4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
@@ -26,6 +28,31 @@ public class CommonUtil {
      * 本地访问
      */
     public final static String LOCAL_IP = "127.0.0.1";
+
+    public static void logException(Logger logger, Throwable e) {
+        logException(logger, e, true);
+    }
+
+    public static void logException(Logger logger, Throwable e, boolean showDetail) {
+        if (showDetail) {
+            e.printStackTrace();
+            logger.error("exception:", e);
+        }
+        List<Throwable> exceptions = ExceptionUtils.getThrowableList(e);
+        for (Throwable throwable : exceptions) {
+            logger.error("msg {}", throwable.getMessage());
+        }
+    }
+
+    public static boolean validFieldForString(String val, int maxSize) {
+        if (StringUtils.isBlank(val)) {
+            return false;
+        }
+        if (val.length() > maxSize) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * id 数组

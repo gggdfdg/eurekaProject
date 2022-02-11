@@ -15,6 +15,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+
 public class Cryptos {
     private static final String AES = "AES";
     private static final String AES_CBC = "AES/CBC/PKCS5Padding";

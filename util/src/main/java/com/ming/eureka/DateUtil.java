@@ -23,6 +23,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * 日期工具类
+ */
 public class DateUtil {
 
     public static final String TIME_FORMATE = "yyyy-MM-dd HH:mm:ss";
@@ -30,6 +33,11 @@ public class DateUtil {
     public static final String MONTH_FORMATE = "yyyy-MM";
     public static final String MINUTES_FORMATE = "yyyy-MM-dd HH:mm";
 
+    /**
+     * 获取日期当天的凌晨0点0分0秒的日期
+     * @param time 例如2022-2-9
+     * @return
+     */
     public static Date getStartDateTimeFromStr(String time) {
         try {
             return DateUtils.parseDate(time, DATE_FORMATE);
@@ -39,6 +47,11 @@ public class DateUtil {
         return null;
     }
 
+    /**
+     * 获取日期当天的凌晨23:59:59的日期
+     * @param time 例如2022-2-9
+     * @return
+     */
     public static Date getEndDateTimeFromStr(String time) {
         time = time + " 23:59:59";
         try {
@@ -47,45 +60,6 @@ public class DateUtil {
             e.printStackTrace();
         }
         return null;
-    }
-
-    /**
-     * 获取距离今天几天
-     *
-     * @param date
-     * @return 负数：过去时间 ， 0：同一天 ，正数：未来时间
-     */
-    public static double daysSinceNow(Date date) {
-        Date truncateDate = DateUtils.truncate(date, Calendar.MINUTE);
-        Date truncateNow = DateUtils.truncate(new Date(), Calendar.MINUTE);
-        double days = 0;
-        days = (truncateDate.getTime() - truncateNow.getTime())
-                / (60 * 60 * 24 * 1000.0);
-        return days;
-    }
-
-    public static double daysSinceNow(Date now, Date date) {
-        Date truncateDate = DateUtils.truncate(date, Calendar.MINUTE);
-        Date truncateNow = DateUtils.truncate(now, Calendar.MINUTE);
-        double days = 0;
-        days = (truncateDate.getTime() - truncateNow.getTime())
-                / (60 * 60 * 24 * 1000.0);
-        return days;
-    }
-
-    /**
-     * 获取距离今天几个月
-     *
-     * @param date
-     * @return 负数：过去时间 ， 0：同一月 ，正数：未来时间
-     */
-    public static int monthSinceNow(Date date) {
-        Date now = new Date();
-        int yearCount = Integer.parseInt(getYear(now))
-                - Integer.parseInt(getYear(date));
-        int monthCount = Integer.parseInt(getMonth(now))
-                - Integer.parseInt(getMonth(date));
-        return yearCount * 12 + monthCount;
     }
 
     /**
@@ -102,7 +76,6 @@ public class DateUtil {
     /**
      * 取得指定月份的第一天
      *
-     * @param strdate String
      * @return String
      */
     public static String getMonthBegin(Date date) {
@@ -116,26 +89,32 @@ public class DateUtil {
      * @return String
      */
     public static String getMonthEnd(String strdate) {
+        //获取当月的第一天
         java.util.Date date = StringToDate(getMonthBegin(strdate));
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
+        //月份加一，往下走
         calendar.add(Calendar.MONTH, 1);
-        calendar.add(Calendar.DAY_OF_YEAR, -1);
+        //天数减一就是最后一天
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
         return formatDate(calendar.getTime());
     }
 
     /**
      * 取得指定月份的最后一天
      *
-     * @param strdate String
      * @return String
      */
     public static String getMonthEnd(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
+        //将日子设置为当前日期第一天
+        calendar.set(Calendar.DAY_OF_MONTH,1);
+        //月份加一，往下走
         calendar.add(Calendar.MONTH, 1);
-        calendar.add(Calendar.DAY_OF_YEAR, -1);
+        //天数减一就是最后一天
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
         return formatDate(calendar.getTime());
     }
 
@@ -152,27 +131,6 @@ public class DateUtil {
     }
 
     /**
-     * 得到strDate日期的周的星期一
-     *
-     * @param strDate
-     * @return
-     */
-    public static String getWeekBegin(String strDate) {
-        java.util.Date date = StringToDate(strDate);
-        Calendar calendar = Calendar.getInstance();
-        // calendar.setFirstDayOfWeek(Calendar.MONDAY);
-        calendar.setTime(date);
-        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);// 1为周日.
-        if (dayOfWeek == 1) {
-            dayOfWeek = 6;
-        } else {
-            dayOfWeek = dayOfWeek - 2;
-        }
-        calendar.add(Calendar.DAY_OF_YEAR, 0 - dayOfWeek);
-        return formatDate(calendar.getTime());
-    }
-
-    /**
      * 常用的格式化日期
      *
      * @param date Date
@@ -185,8 +143,6 @@ public class DateUtil {
     /**
      * time是否在当前时间的前N天
      *
-     * @param d1
-     * @param d2
      * @return
      */
     public static boolean isPastDay(long time) {
@@ -196,14 +152,12 @@ public class DateUtil {
         current.set(Calendar.SECOND, 0);
         Calendar old = Calendar.getInstance();
         current.setTime(new java.util.Date(time));
-        return current.getTime().getTime() > old.getTime().getTime();
+        return current.getTime().getTime() < old.getTime().getTime();
     }
 
     /**
      * 是否在同一天
      *
-     * @param d1
-     * @param d2
      * @return
      */
     public static boolean isToday(Date time) {
@@ -224,8 +178,6 @@ public class DateUtil {
     /**
      * 判断是否比当前时间小
      *
-     * @param d1
-     * @param d2
      * @return
      */
     public static boolean isBeforToday(Date time) {
@@ -1420,5 +1372,31 @@ public class DateUtil {
             return random(begin, end);
         }
         return rtn;
+    }
+
+
+
+
+    public static void main(String args[])throws Exception{
+        //输出月份的最后一天  2021-10-31
+//        System.out.println(getMonthEnd("2021-10-7"));
+//        System.out.println(getMonthEnd(DateUtils.parseDate("2021-10-3", DATE_FORMATE)));
+        //输出月份的第一天  2021-10-01
+//        System.out.println(getMonthBegin("2021-10-7"));
+//        System.out.println(getMonthBegin(DateUtils.parseDate("2021-10-3", DATE_FORMATE)));
+        //输出日期的最晚时间 Thu Oct 07 23:59:59 CST 2021
+//        System.out.println(getEndDateTimeFromStr("2021-10-7"));
+        //输出日期的最早时间 Thu Oct 07 00:00:00 CST 2021
+//        System.out.println(getStartDateTimeFromStr("2021-10-7"));
+        //输出月份天数 28
+//        System.out.println(getMonthDaynum("2021-2-7"));
+        //输出日期的格式化 2022-02-10
+//        System.out.println(formatDate(new Date()));
+        //是否日期是否是过去 true
+//        System.out.println(isPastDay(DateUtils.parseDate("2021-10-3", DATE_FORMATE).getTime()));
+        //是否日期是否是同一天 false
+//        System.out.println(isTheSameDay(DateUtils.parseDate("2022-1-10", DATE_FORMATE).getTime(),new Date().getTime()));
+        //是否日期是否是同一年 false
+        System.out.println(isTheSameYear(DateUtils.parseDate("2021-1-10", DATE_FORMATE).getTime(),new Date().getTime()));
     }
 }

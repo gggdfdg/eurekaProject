@@ -6,6 +6,7 @@
 package com.ming.eureka;
 
 /**
+ * Excel实体
  * @author luoxiaomin 2016年3月15日
  */
 public class ExcelHead {
