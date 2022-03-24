@@ -51,7 +51,7 @@ public enum SourceType {
 
     public Class<?> getFileClass() {
         try {
-            return Class.forName(StringUtils.join("com.ming.eureka.model.", this.name()));
+            return Class.forName(StringUtils.join("com.ming.eureka.model.entity.", this.name()));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

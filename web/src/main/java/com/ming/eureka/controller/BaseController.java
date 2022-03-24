@@ -7,15 +7,14 @@ package com.ming.eureka.controller;
 
 import com.ming.eureka.Constant;
 import com.ming.eureka.ValidateCodeUtils;
-import com.ming.eureka.model.dao.sysuser.SysUserDao;
 import com.ming.eureka.model.entity.sysuser.SysUser;
+import com.ming.eureka.model.entity.user.CurrentUser;
 import com.ming.eureka.query.ParameterChecker;
 import com.ming.eureka.query.QueryInfo;
 import com.ming.eureka.query.QueryUtils;
 import com.ming.eureka.security.CurrentSysUser;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.service.spi.ServiceException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,7 +37,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * controller 基类
+ * web的基础controller
  *
  * @author lll 2015年5月28日
  */
@@ -52,21 +51,23 @@ public class BaseController {
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     /**
-     * sys用户数据访问接口
-     */
-    @Autowired
-    private SysUserDao sysUserDao;
-
-
-    /**
      * 枚举查询类型，区分系统支持的查询操作类型。
      */
     protected enum QueryType {
-        FORM_QUERY, PAGE_QUERY, ORDER_QUERY, BACK_QUERY
+        //来源查询，存在session中，下次可以直接拿出来查询
+        FORM_QUERY,
+        //分页查询，存在session中，下次可以直接拿出来查询
+        PAGE_QUERY,
+        //排序查询，存在session中，下次可以直接拿出来查询
+        ORDER_QUERY,
+        //后退查询，存在session中，下次可以直接拿出来查询
+        BACK_QUERY
     }
 
+    //基础请求回复部分------------------
+
     /**
-     * 得到基本url
+     * 获取项目的基础uri，例如，访问http://web:8004/
      *
      * @return {@link String}
      */
@@ -81,7 +82,7 @@ public class BaseController {
     }
 
     /**
-     * get请求
+     * Request
      *
      * @return {@link HttpServletRequest}
      */
@@ -91,7 +92,7 @@ public class BaseController {
     }
 
     /**
-     * 得到响应
+     * Response
      *
      * @return {@link HttpServletResponse}
      */
@@ -99,6 +100,9 @@ public class BaseController {
         RequestAttributes attributes = RequestContextHolder.getRequestAttributes();
         return ((ServletRequestAttributes) attributes).getResponse();
     }
+
+
+    //验证码部分--------------------
 
     /**
      * 绕过Template,直接输出验证码(image/jpeg)
@@ -122,28 +126,13 @@ public class BaseController {
             outputStream.flush();
             outputStream.close();
         } catch (IOException ignored) {
-
+            ignored.printStackTrace();
         }
     }
 
-    /**
-     * 系统用户保存到会话
-     *
-     * @param sysUser 系统用户
-     */
-    protected void saveSysUserToSession(SysUser sysUser) {
-        this.getRequest().getSession().setAttribute(Constant.SESSION_SYS_ADMIN_LOGIN, sysUser);
-    }
 
     /**
-     * 删除系统用户会话
-     */
-    public void removeSysUserSession() {
-        this.getRequest().getSession().removeAttribute(Constant.SESSION_SYS_ADMIN_LOGIN);
-    }
-
-    /**
-     * 获得当前系统用户
+     * 获取会话用户
      *
      * @return {@link CurrentSysUser}
      */
@@ -151,8 +140,10 @@ public class BaseController {
         return (CurrentSysUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
+    //密码部分--------------------------
+
     /**
-     * 验证旧密码
+     * 验证密码
      *
      * @param user        用户
      * @param oldPassword 旧密码
@@ -163,7 +154,7 @@ public class BaseController {
     }
 
     /**
-     * 保存加密后的密码
+     * 加密密码
      *
      * @param passWord 密码
      * @return {@link String}
@@ -171,6 +162,10 @@ public class BaseController {
     protected String enTryPtPassword(String passWord) {
         return encoder.encode(passWord);
     }
+
+
+
+    //分页部分------------------------------
 
     /**
      * 处理分页前后省略号计算问题
@@ -239,8 +234,11 @@ public class BaseController {
                 .addAttribute(maxIndex);
     }
 
+
+    //基础查询部分----------------------------
+
     /**
-     * 保存查询信息和返回页面
+     * 保存查询信息到session中存储
      *
      * @param defaultOrder   默认的顺序
      * @param defaultOrderBy 默认的命令
@@ -405,13 +403,5 @@ public class BaseController {
         }
         response.sendRedirect(redirectListPath + "?isBack=1");
     }
-
-//    /**
-//     * 获取当前用户
-//     *
-//     */
-//    public CurrentUser getCurrentUser() {
-//        return (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//    }
 
 }

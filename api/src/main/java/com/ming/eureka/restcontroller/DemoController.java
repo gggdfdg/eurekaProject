@@ -1,16 +1,28 @@
-package com.ming.eureka.controller;
+package com.ming.eureka.restcontroller;
 
-import com.ming.eureka.*;
-import org.apache.http.entity.BufferedHttpEntity;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiKey;
+import springfox.documentation.service.SecurityReference;
+import springfox.documentation.service.SecurityScheme;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
+import springfox.documentation.spring.web.plugins.Docket;
+
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * demo示范
  * @author zhujianming
  * @date 2022-02-07 18:13
  */
@@ -20,7 +32,8 @@ public class DemoController {
 
     /**
      * ajax返回json
-     * @return
+     *
+     * @return json实体
      */
     @RequestMapping("/z")
     @ResponseBody
@@ -33,7 +46,7 @@ public class DemoController {
 
     /**
      * ajax返回json
-     * @return
+     * @param response 返回实体
      */
     @RequestMapping("/t")
     @ResponseBody
@@ -45,22 +58,6 @@ public class DemoController {
             response.setDateHeader("Expires", 0);
             response.getWriter().write("{\"json\":\"demo\"}");
             response.getWriter().flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @RequestMapping("/p")
-    @ResponseBody
-    public void checkIndex(HttpServletResponse response) throws Exception{
-        BufferedHttpEntity entity = HttpClientUtil.downloadFile("https://pics2.baidu.com/feed/960a304e251f95caa2cfab0ebe65bd37660952cf.jpeg?token=dfa9830081ec6dc6b107c8701eca5e98");
-        try {
-            response.setContentType(entity.getContentType().getValue());
-            byte[] temp = new byte[entity.getContent().available()];
-            entity.getContent().read(temp);
-            OutputStream out = response.getOutputStream();
-            out.write(temp);
-            out.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }

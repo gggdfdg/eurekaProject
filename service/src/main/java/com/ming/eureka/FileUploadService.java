@@ -58,16 +58,12 @@ public class FileUploadService extends BaseService {
     }
 
     /**
-     * 验证上传文件
-     * @param mulFile
-     * @param sourceType 类型
-     * @return
+     * 校验文件类型
+     * @param mulFile 多文件
+     * @param sourceType 乐行
+     * @return 检验对象
      */
     public CommonResult validateFile(MultipartFile mulFile, SourceType sourceType) {
-        /*
-         *  1.检查文件是否为空
-         *	3.检查文件类型
-         */
         if (mulFile == null) {
             return new CommonResult(1, "file is empty");
         }
@@ -106,7 +102,7 @@ public class FileUploadService extends BaseService {
      * @return
      */
     public File getFile(AbstractFile file, String spec) {
-        File fileT = null;
+        File fileT;
         if (file != null) {
             fileT = new File(file.getAbsolutePathInDisk(configInfo.getProFilePath(), spec));
 
@@ -120,22 +116,26 @@ public class FileUploadService extends BaseService {
     }
 
     /**
-     * 获取临时的文件对象
-     * @param uri
-     * @param fileName
-     * @param spec
+     * 获取临时文件
+     * @param uri 文件相对路径
+     * @param fileName 文件名
+     * @param spec 规格
+     * @param filePath 文件绝对路径
      * @return
-     * */
+     */
     public File getTempFile(String uri, String fileName, String spec, String filePath) {
-        File file = null;
+        File file;
+        //粘贴绝对路径+文件路径
         if (filePath.endsWith(File.separator)) {
             filePath = StringUtils.join(filePath, uri);
         } else {
             filePath = StringUtils.join(filePath, File.separator, uri);
         }
+        //粘贴绝对路径+文件路径+规格+文件名
         if (StringUtils.isNotBlank(spec)) {
             filePath = StringUtils.join(filePath, File.separator, spec, File.separator, fileName);
-        } else {//原图文件
+        } else {
+            //原图文件
             filePath = StringUtils.join(filePath, File.separator, fileName);
         }
         file = new File(filePath);
@@ -194,7 +194,6 @@ public class FileUploadService extends BaseService {
             }
             List<?> resultList = entityManager.createQuery(query.newCriteriaQuery()).getResultList();
             fileEntity = CollectionUtils.isEmpty(resultList) ? null : (AbstractFile) resultList.iterator().next();
-
             logger.info("上传文件... 修改文件...FileEntity:{}", fileEntity);
         }
         //查询不到 新建记录
@@ -208,8 +207,10 @@ public class FileUploadService extends BaseService {
         }
         List<String> imageSpecs = imageProperties.getSpecs(customSpecs, sourceType);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(file.getBytes());
+        //上传文件返回绝对路径和相对路径
         CommonResult result = this.saveFile(sourceType, inputStream, bufferedImage, imageSpecs, file.getContentType(), configInfo.getTemFilePath());
         if (bufferedImage != null) {
+            //规格用，分开
             fileEntity.setSpecs(StringUtils.join(imageSpecs, ','));
         }
         fileEntity.setName(file.getOriginalFilename());
@@ -218,6 +219,7 @@ public class FileUploadService extends BaseService {
         if (StringUtils.isNotBlank(file.getContentType())) {
             logger.error("参数:{}", result.getValue("abPath").toString());
             if (file.getContentType().equals("audio/mp3") || isAud(new FileInputStream(result.getValue("abPath").toString()), true)) {
+                //音频，默认用比特流
                 fileEntity.setContentType("application/octet-stream");
             } else {
                 fileEntity.setContentType(file.getContentType());
@@ -227,7 +229,9 @@ public class FileUploadService extends BaseService {
         } else if (file.getOriginalFilename().endsWith("mp4")) {
             fileEntity.setContentType("video/mp4");
         }
+        //如果是视频，生成封面
         this.generateVideoFaceIfNecessary(fileEntity);
+        //保存
         persistProcess.persistProcess(fileEntity, sourceType);
         return fileEntity;
     }
@@ -241,7 +245,9 @@ public class FileUploadService extends BaseService {
         if (StringUtils.isNotBlank(file.getContentType()) && file.getContentType().startsWith("video/")) {
             try {
                 String desc = file.getAbsolutePathInDisk(configInfo.getTemFilePath(), AbstractFile.SPEC_VIDEO_FACE);
+                //创建父文件夹
                 FileUtil.createFolder(StringUtils.substringBeforeLast(desc, File.separator));
+                //生成封面
                 VideoUtil.generateVideoFace(file.getAbsolutePathInDisk(configInfo.getTemFilePath(), null),
                         desc);
             } catch (Exception e) {
@@ -261,33 +267,39 @@ public class FileUploadService extends BaseService {
     public CommonResult saveFile(SourceType sourceType, InputStream inputStream,
                                  BufferedImage bufferedImage, List<String> imageSpecs, String contentType, String dirPath) {
         Assert.notNull(inputStream, "图片资源不能为空");
-        //资源类型目录 临时文件夹
+        //路径+类型
         String sourceTypeDir = sourceType.pathInDir(dirPath);
         //生成绝对路径（并创建好相关目录）
         String descPath = null;
         try {
+            //路径+类型+文件hash1+文件hash2+hash文件名
             descPath = FileUtil.generateAndCreateHashPath(sourceTypeDir, inputStream);
         } catch (IOException e1) {
             e1.printStackTrace();
             logger.error("generate descPath error :" + e1.getMessage());
         }
         if (contentType.equals("audio/mp3")) {
+            //声音加个.mp3
             descPath = descPath + ".mp3";
         }
         // 转存文件
         assert descPath != null;
         File descFile = new File(descPath);
         try {
+            //原图
             if (bufferedImage == null) {
                 bufferedImage = FileUtil.getImage(inputStream);
                 inputStream.reset();
             }
             if (bufferedImage == null) {
+                //把流拷贝生成文件
                 FileUtils.copyInputStreamToFile(inputStream, descFile);
+                //没有规格
                 imageSpecs = Lists.newArrayList();
             } else {// 转存图片
                 FileUtils.copyInputStreamToFile(inputStream, descFile);
                 ImageUtil.dealAndSaveImage(descPath, descPath);
+                //获取该类型的所有规格去生成
                 if (imageSpecs == null) {
                     imageSpecs = imageProperties.getSpecs(null, sourceType);
                 }
@@ -297,6 +309,7 @@ public class FileUploadService extends BaseService {
                 inputStream.close();
             }
             if (contentType.equals("audio/mp3") || isAud(new FileInputStream(descFile), true)) {
+                //语音文件转化（去掉.mp3）
                 resovleVoice(descFile, contentType);
             }
         } catch (Exception e) {
@@ -306,6 +319,7 @@ public class FileUploadService extends BaseService {
         if (contentType.equals("audio/mp3")) {
             descPath = descPath.replace(".mp3", "");
         }
+        //去掉绝对路径头，留下相对路径
         String path = StringUtils.substringAfter(descPath, dirPath);
         return CommonResult.succ().withData("path", path).withData("imageSpecs", imageSpecs).withData("abPath", descPath);
     }

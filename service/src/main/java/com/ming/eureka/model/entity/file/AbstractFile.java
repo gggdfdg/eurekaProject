@@ -186,10 +186,14 @@ public abstract class AbstractFile extends IdTimeTenantEntity {
             diskDirT = StringUtils.join(diskDir, File.separator);
         }
         if (StringUtils.isNotBlank(spec)) {
+            //fasfsaf\gasgsag\gdg->fasfsaf\gasgsag
             String descDir = StringUtils.substringBeforeLast(uri, File.separator);
+            //fasfsaf\gasgsag\gdg->gdg
             String fileName = StringUtils.substringAfterLast(uri, File.separator);
+            //路径+创建的路径+规格+文件名
             return StringUtils.join(diskDirT, descDir, File.separator, spec, File.separator, fileName);
         } else {
+            //路径+创建的路径+文件名
             return StringUtils.join(diskDirT, uri);
         }
     }

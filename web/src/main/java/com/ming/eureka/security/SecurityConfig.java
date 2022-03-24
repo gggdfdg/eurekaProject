@@ -9,13 +9,16 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.util.DigestUtils;
 
 
 /**
@@ -65,6 +68,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return encoder;
     }
 
+    public static void main(String args[]){
+        String encodeStr = DigestUtils.md5DigestAsHex("abc1233".getBytes());
+        System.out.println(BCrypt.hashpw(encodeStr, BCrypt.gensalt()));
+    }
+
     /**
      * security配置加密的方式和登录处理类
      * @param auth
@@ -85,7 +93,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // TODO Auto-generated method stub
-        http.csrf().ignoringAntMatchers("/login");
+        http.csrf().ignoringAntMatchers("/logout");
+        //全局session，如果用户信息变化，本session也会变化。
         HttpSessionSecurityContextRepository httpSecurityRepository = new HttpSessionSecurityContextRepository();
         httpSecurityRepository.setDisableUrlRewriting(false);
         httpSecurityRepository.setAllowSessionCreation(true);

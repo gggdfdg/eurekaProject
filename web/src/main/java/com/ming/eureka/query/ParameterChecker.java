@@ -4,6 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Pattern;
 
+/**
+ * 正则匹配
+ */
 public class ParameterChecker {
 
     /**

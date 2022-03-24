@@ -1,46 +1,12 @@
-package com.ming.eureka.controller;
+# 学习笔记-urls静态资源缓存刷新
+ 
+------
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.servlet.resource.ResourceUrlProvider;
+首先介绍下本章学习的内容：
+ 
+> * 学习笔记-urls静态资源缓存刷新
 
-/**
- * controller增强器，全局参数处理
- * @author lazier
- */
-@ControllerAdvice
-public class CurrentUserControllerAdvice {
-
-    @Autowired
-    private ResourceUrlProvider resourceUrlProvider;
-
-    @Value("${sys.config.name}")
-    private String sysName;
-
-    @Value("${sys.config.logo.url}")
-    private String sysImgUrl;
-
-    /**
-     * 全局参数sysName
-     * @return
-     */
-    @ModelAttribute("sysName")
-    public String getSysName() {
-        return this.sysName;
-    }
-
-    /**
-     * 全局参数sysImgUrl
-     * @return
-     */
-    @ModelAttribute("sysImgUrl")
-    public String getSysImgUrl() {
-        return this.sysImgUrl;
-    }
-
-
+## 学习笔记-urls静态资源缓存刷新
     //方法前景
     //原来spring boot会把静态文件缓存到浏览器本地。但这样就造成了一个问题：如果服务器静态文件修改，浏览器端在未过期之前是不会重新加载文件的。
     //此时需要通过版本号来控制。spring boot版本号支持两种，一种是文件md5，另一种是固定版本号。
@@ -61,6 +27,3 @@ public class CurrentUserControllerAdvice {
     //<#function static url>
     //	<#return urls.getForLookupPath(ctx+url)>
     //</#function>
-
-
-}

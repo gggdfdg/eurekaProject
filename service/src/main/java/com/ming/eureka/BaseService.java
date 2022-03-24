@@ -11,8 +11,12 @@ import com.ming.eureka.business.DynamicSpecifications;
 import com.ming.eureka.business.SearchFilter;
 import com.ming.eureka.business.SearchParam;
 import com.ming.eureka.business.SearchPredicate;
+import com.ming.eureka.model.dao.user.UserDao;
 import com.ming.eureka.model.entity.IdEntity;
 import com.ming.eureka.model.entity.file.ConfigInfo;
+import com.ming.eureka.model.entity.user.CurrentUser;
+import com.ming.eureka.model.entity.user.IUser;
+import com.ming.eureka.util.SecureUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.dozer.DozerBeanMapper;
@@ -59,6 +63,9 @@ public class BaseService {
             mapper.setMappingFiles(Lists.newArrayList("globalConfig.xml"));
         }
     }
+
+    @Autowired
+    UserDao userDao;
 
     public static String HOSTNAME;
     @Value("${eureka.instance.ipAddress:127.0.0.1}")
@@ -344,22 +351,22 @@ public class BaseService {
         this.configInfo = configInfo;
     }
 
-//    /**
-//     * 获取当前登录用户
-//     * @return
-//     */
-//    public IUser<?> getCurrentLoginUser() {
-//        if (!SecureUtil.isAuthenticated()) {
-//            return null;
-//        }
-//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        String username;
-//        if (principal instanceof UserDetails) {
-//            String[] loginNameArray = ((UserDetails)principal).getUsername().split("@");
-//            username = loginNameArray[0];
-//        } else {
-//            username = principal.toString();
-//        }
-//        return userDao.findByLoginName(username,((CurrentUser)principal).getTenantId());
-//    }
+    /**
+     * 获取当前登录用户
+     * @return
+     */
+    public IUser<?> getCurrentLoginUser() {
+        if (!SecureUtil.isAuthenticated()) {
+            return null;
+        }
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username;
+        if (principal instanceof UserDetails) {
+            String[] loginNameArray = ((UserDetails)principal).getUsername().split("@");
+            username = loginNameArray[0];
+        } else {
+            username = principal.toString();
+        }
+        return userDao.findByLoginName(username,((CurrentUser)principal).getTenantId());
+    }
 }
