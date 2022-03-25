@@ -2,62 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4e68bcd-a75e-4d19-a85b-d9a16b6b6c54" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/Swagger2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/dto/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/dto/LoginInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/dto/StringToTimeConvertor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/restcontroller/ApiIndexController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/restcontroller/FileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/restcontroller/RestAuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/restcontroller/RestBaseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/AuthFailHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/AuthInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/AuthenticationFailureEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/AuthenticationSuccessEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/CustomUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/EventConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/TokenUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/WebMvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/resources/globalConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/dao/user/IUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/dao/user/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/dao/userinfo/UserInfoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/role/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/user/CurrentUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/user/IUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/userinfo/UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/service/user/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/service/user/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/ming/eureka/KeyValueObj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/ErrorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/resources/templates/error/401.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/学习笔记-ControllerAdvice的使用.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/学习笔记-spring security的rememberme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/学习笔记-spring securiy+freemark+csrf跨站.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/学习笔记-urls静态资源缓存刷新.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/学习笔记-加密BCryptPasswordEncoder.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/学习笔记-错误界面重写.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/ApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/controller/DemoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/restcontroller/DemoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/controller/FileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/BaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/FileUploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/FileUploadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/file/AbstractFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/file/AbstractFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/file/SourceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/file/SourceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/WebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/WebApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/CurrentUserControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/CurrentUserControllerAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/DemoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/query/ParameterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/query/ParameterChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -84,32 +29,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/redis/PersistentAccessToken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/redis/RedisTokenRepositoryImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="69" column="7" lean-forward="true" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
-              <folding>
-                <element signature="e#772#773#0" expanded="true" />
-                <element signature="e#822#823#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/AuthSuccessHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="344">
               <caret line="51" column="40" lean-forward="true" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1817">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,8 +61,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/WebUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+            <state relative-caret-position="-2659">
+              <caret line="110" column="48" lean-forward="true" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/Constant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -135,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/SecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+            <state relative-caret-position="-1412">
+              <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -150,7 +94,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/ExceptionFilter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="276">
@@ -164,11 +108,14 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/WebApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="106" column="8" selection-start-line="106" selection-start-column="8" selection-end-line="106" selection-end-column="8" />
+            <state relative-caret-position="184">
+              <caret line="84" column="59" lean-forward="true" selection-start-line="84" selection-start-column="59" selection-end-line="84" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -256,7 +203,6 @@
         <option value="$PROJECT_DIR$/service/src/main/java/com/ming/eureka/model/entity/file/SourceType.java" />
         <option value="$PROJECT_DIR$/api/src/main/resources/globalConfig.xml" />
         <option value="$PROJECT_DIR$/api/pom.xml" />
-        <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/Constant.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/TokenUtils.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/Swagger2.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/dto/Constant.java" />
@@ -272,7 +218,6 @@
         <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/BaseController.java" />
         <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/ErrorController.java" />
         <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/WebApplication.java" />
-        <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/web/src/main/resources/templates/login.ftl" />
         <option value="$PROJECT_DIR$/学习笔记-spring securiy+freemark+csrf跨域.md" />
         <option value="$PROJECT_DIR$/学习笔记-spring securiy+freemark+csrf跨站.md" />
@@ -282,6 +227,8 @@
         <option value="$PROJECT_DIR$/学习笔记-urls静态资源缓存刷新.md" />
         <option value="$PROJECT_DIR$/学习笔记-ControllerAdvice的使用.md" />
         <option value="$PROJECT_DIR$/学习笔记-错误界面重写.md" />
+        <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/Constant.java" />
       </list>
     </option>
   </component>
@@ -331,78 +278,6 @@
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eureka" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="eureka" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eurekaProject" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -420,7 +295,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1648115846747" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1648171084292" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="D:/Downloads/springsecuritydemo-master/springsecuritydemo-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -437,11 +312,11 @@
       <recent name="com.ming.eureka" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\eurekaProject\web\src\main\resources\templates\error" />
       <recent name="G:\eurekaProject\api\src\main\resources" />
       <recent name="G:\eurekaProject\api\src\main\java\com\ming\eureka\controller" />
       <recent name="G:\eurekaProject\service\src\main\resources" />
       <recent name="G:\eurekaProject\web\src\main\resources" />
-      <recent name="G:\eurekaProject\web\src\main\resources\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -600,7 +475,7 @@
       <workItem from="1646385527677" duration="7504000" />
       <workItem from="1646794460721" duration="1232000" />
       <workItem from="1647842066356" duration="20272000" />
-      <workItem from="1647928620866" duration="20187000" />
+      <workItem from="1647928620866" duration="21674000" />
     </task>
     <task id="LOCAL-00001" summary="新增git的使用">
       <created>1641979721575</created>
@@ -651,15 +526,21 @@
       <option name="project" value="LOCAL" />
       <updated>1644548171546</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="修改大版本，加入api和web端，加入security框架和jpa和redis">
+      <created>1648116007748</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1648116007749</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="344279000" />
+    <option name="totallyTimeSpent" value="345766000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
@@ -797,16 +678,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.5.4/spring-security-web-5.5.4.jar!/org/springframework/security/web/SecurityFilterChain.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#367#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.3.14/spring-web-5.3.14.jar!/org/springframework/web/filter/DelegatingFilterProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1130,13 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1721">
-          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/query/ParameterChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1197,34 +1061,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/WebApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="106" column="8" selection-start-line="106" selection-start-column="8" selection-end-line="106" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/resources/templates/error/401.ftl">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/WebUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/ExceptionFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1412">
+          <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/WebUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2659">
+          <caret line="110" column="48" lean-forward="true" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1817">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/WebApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="84" column="59" lean-forward="true" selection-start-line="84" selection-start-column="59" selection-end-line="84" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
