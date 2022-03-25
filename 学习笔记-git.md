@@ -21,6 +21,7 @@
 ##### 创建本地ssh key(your_email@youremail.com替换成自己的邮箱)，用来和github通讯
 
 ```seq
+   ssh-keygen -t ed25519 -C "your_email@youremail.com"
    ssh-keygen -t rsa -C "your_email@youremail.com"
 ```
 

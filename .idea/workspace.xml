@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d4e68bcd-a75e-4d19-a85b-d9a16b6b6c54" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/学习笔记-git.md" beforeDir="false" afterPath="$PROJECT_DIR$/学习笔记-git.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,15 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/security/AuthSuccessHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="51" column="40" lean-forward="true" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -108,14 +100,26 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/WebApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="82" column="21" lean-forward="true" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+            <state relative-caret-position="207">
+              <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/学习笔记-git.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="391">
+                <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="24" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -178,7 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/controller/RestExceptionHandler.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/controller/ApiIndexController.java" />
         <option value="$PROJECT_DIR$/service/pom.xml" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/ming/eureka/security/CustomUserDetailsService.java" />
@@ -229,6 +232,7 @@
         <option value="$PROJECT_DIR$/学习笔记-错误界面重写.md" />
         <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/web/src/main/java/com/ming/eureka/Constant.java" />
+        <option value="$PROJECT_DIR$/学习笔记-git.md" />
       </list>
     </option>
   </component>
@@ -295,7 +299,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1648171644295" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1648172969866" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="D:/Downloads/springsecuritydemo-master/springsecuritydemo-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -475,7 +479,7 @@
       <workItem from="1646385527677" duration="7504000" />
       <workItem from="1646794460721" duration="1232000" />
       <workItem from="1647842066356" duration="20272000" />
-      <workItem from="1647928620866" duration="21934000" />
+      <workItem from="1647928620866" duration="23301000" />
     </task>
     <task id="LOCAL-00001" summary="新增git的使用">
       <created>1641979721575</created>
@@ -540,14 +544,22 @@
       <option name="project" value="LOCAL" />
       <updated>1648171234440</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="修改大版本，加入api和web端，加入security框架和jpa和redis">
+      <created>1648171696779</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1648171696779</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346026000" />
+    <option name="totallyTimeSpent" value="347393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
@@ -561,7 +573,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.47707888" weight="0.32917964" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.41684434" weight="0.27206644" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.5533049" visible="true" weight="0.4330218" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5533049" visible="true" weight="0.4330218" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -569,7 +581,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4978678" weight="0.32917964" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.4466951" side_tool="true" visible="true" weight="0.4330218" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="11" sideWeight="0.4466951" side_tool="true" visible="true" weight="0.4330218" />
       <window_info anchor="bottom" id="Problems" order="12" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -807,16 +819,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="391">
             <caret line="17" column="9" selection-start-line="17" selection-end-line="18" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/学习笔记-git.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="138">
-            <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
           </first_editor>
           <second_editor />
         </state>
@@ -1111,11 +1113,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/java/com/ming/eureka/WebApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="82" column="21" lean-forward="true" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+        <state relative-caret-position="207">
+          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/学习笔记-git.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="391">
+            <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="24" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
